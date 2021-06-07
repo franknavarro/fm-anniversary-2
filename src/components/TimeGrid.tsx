@@ -4,7 +4,7 @@ import { PageContainer } from '../components/PageContainer';
 import { TimeBox } from '../components/TimeBox';
 
 const useStyles = makeStyles({
-  root: {
+  timeGrid: {
     minHeight: '100vh',
   },
 });
@@ -46,7 +46,7 @@ export const TimeGrid: FC<TimeGridProps> = ({
         container
         alignItems="center"
         justify="center"
-        className={classes.root}
+        className={classes.timeGrid}
       >
         <Grid container item xs={12} justify="center" spacing={10}>
           {renderTextGrid(primaryText)}

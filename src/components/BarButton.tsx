@@ -61,7 +61,7 @@ export const BarButton: FC<BarButtonProps> = ({
       in={!!linkDestination}
       direction={bottom ? 'up' : 'down'}
     >
-      <AppBar position="sticky" {...extraProps}>
+      <AppBar position="fixed" {...extraProps}>
         <Toolbar>
           <IconButton
             arial-label={label}

@@ -4,7 +4,7 @@ import NumberFormat from 'react-number-format';
 import { countUnits, CountUnitsOptions } from '../helpers/countUnits';
 
 const useStyles = makeStyles({
-  root: { flexGrow: 1 },
+  timeBox: { flexGrow: 1 },
 });
 
 export const TimeBox: FC<CountUnitsOptions & GridProps> = ({
@@ -30,7 +30,7 @@ export const TimeBox: FC<CountUnitsOptions & GridProps> = ({
     <>
       {time.map(([value, unit]) => {
         return (
-          <Grid item key={unit} className={classes.root} {...props}>
+          <Grid item key={unit} className={classes.timeBox} {...props}>
             <Typography variant="h3" align="center">
               <NumberFormat
                 value={value}

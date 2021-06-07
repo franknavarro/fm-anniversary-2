@@ -2,9 +2,9 @@ import { Container, makeStyles } from '@material-ui/core';
 import { FC } from 'react';
 
 const useStyles = makeStyles({
-  root: {
+  pageContainer: {
     minHeight: '100vh',
-    minWidth: '100vw',
+    minWidth: '100%',
   },
 });
 
@@ -19,7 +19,7 @@ export const PageContainer: FC<PageContainerProps> = ({
   const classes = useStyles();
 
   return (
-    <Container className={classes.root} disableGutters {...props}>
+    <Container className={classes.pageContainer} disableGutters {...props}>
       {children || ''}
     </Container>
   );

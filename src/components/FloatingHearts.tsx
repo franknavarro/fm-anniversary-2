@@ -3,7 +3,7 @@ import { useWindowSize } from '../hooks/useWindowSize';
 import './FloatingHearts.css';
 
 const useStyles = makeStyles({
-  root: {
+  floatingHearts: {
     width: '100vw',
     height: '100vh',
     overflow: 'hidden',
@@ -53,7 +53,7 @@ export const FloatingHearts = () => {
   const hearts = Math.floor(windowSize.width / 50);
 
   return (
-    <div className={classes.root}>
+    <div className={classes.floatingHearts}>
       {[...Array(hearts)].map((_, index) => {
         const position = randomNumber(index * 50, (index + 1) * 50);
         return (
