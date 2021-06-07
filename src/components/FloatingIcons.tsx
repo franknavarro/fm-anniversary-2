@@ -66,8 +66,8 @@ export const FloatingIcons: FC<FloatingIconsProps> = ({ Icon }) => {
           <Icon
             key={index}
             fontSize="large"
+            color="secondary"
             className={classes.icon}
-            htmlColor="#cc2022"
             style={{
               left: `${position}px`,
               transform: `scale(${randomNumber(0.75, 1, 2)})`,

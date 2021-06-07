@@ -1,19 +1,19 @@
 import { createMuiTheme, responsiveFontSizes } from '@material-ui/core';
 
-const BASE_RED = '#FF3232';
-const ICON_COLOR = '#CC2022';
+const BASE_BLACK = '#272727';
+const ICON_COLOR = '#7D7D7D';
 
-let loveTheme = createMuiTheme({
+let doggyTheme = createMuiTheme({
   palette: {
     primary: {
-      main: BASE_RED,
+      main: BASE_BLACK,
     },
     secondary: {
       main: ICON_COLOR,
     },
     background: {
-      paper: BASE_RED,
-      default: BASE_RED,
+      paper: BASE_BLACK,
+      default: BASE_BLACK,
     },
     text: {
       primary: 'rgba(255, 255, 255, 0.87)',
@@ -24,7 +24,7 @@ let loveTheme = createMuiTheme({
   },
 });
 
-export default responsiveFontSizes(loveTheme, {
+export default responsiveFontSizes(doggyTheme, {
   factor: 3,
   breakpoints: ['md', 'lg'],
 });

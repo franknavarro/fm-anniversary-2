@@ -1,9 +1,11 @@
 import { CssBaseline } from '@material-ui/core';
 import FavoriteIcon from '@material-ui/icons/Favorite';
+import PetsIcon from '@material-ui/icons/Pets';
 import { FC } from 'react';
 import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
 import PageLayout from './components/PageLayout';
 import { useAniversaryCounters, useEeveeCounters } from './hooks/useCounters';
+import doggyTheme from './themes/doggyTheme';
 import loveTheme from './themes/loveTheme';
 
 const App: FC = () => {
@@ -21,8 +23,8 @@ const App: FC = () => {
         <Route path="/eevee" exact>
           <PageLayout
             useCounter={useEeveeCounters}
-            theme={loveTheme}
-            Icon={FavoriteIcon}
+            theme={doggyTheme}
+            Icon={PetsIcon}
           />
         </Route>
       </Switch>
