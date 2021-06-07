@@ -1,4 +1,5 @@
 import { CssBaseline } from '@material-ui/core';
+import FavoriteIcon from '@material-ui/icons/Favorite';
 import { FC } from 'react';
 import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
 import PageLayout from './components/PageLayout';
@@ -11,10 +12,18 @@ const App: FC = () => {
       <CssBaseline />
       <Switch>
         <Route path="/" exact>
-          <PageLayout useCounter={useAniversaryCounters} theme={loveTheme} />
+          <PageLayout
+            useCounter={useAniversaryCounters}
+            theme={loveTheme}
+            Icon={FavoriteIcon}
+          />
         </Route>
         <Route path="/eevee" exact>
-          <PageLayout useCounter={useEeveeCounters} theme={loveTheme} />
+          <PageLayout
+            useCounter={useEeveeCounters}
+            theme={loveTheme}
+            Icon={FavoriteIcon}
+          />
         </Route>
       </Switch>
     </Router>

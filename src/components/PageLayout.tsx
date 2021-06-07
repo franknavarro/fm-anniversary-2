@@ -1,9 +1,9 @@
 import { ThemeProvider, ThemeProviderProps } from '@material-ui/core';
-import { ExpandLess, ExpandMore } from '@material-ui/icons';
+import { ExpandLess, ExpandMore, SvgIconComponent } from '@material-ui/icons';
 import { FC, RefObject, useEffect, useMemo, useState } from 'react';
 import { useCounter } from '../hooks/useCounters';
 import { BarButton } from './BarButton';
-import { FloatingHearts } from './FloatingHearts';
+import { FloatingIcons } from './FloatingIcons';
 import { TimeGrid } from './TimeGrid';
 
 const EMPTY_REF = { current: null };
@@ -11,9 +11,10 @@ const EMPTY_REF = { current: null };
 interface PageLayoutProps {
   theme: ThemeProviderProps['theme'];
   useCounter: useCounter;
+  Icon: SvgIconComponent;
 }
 
-const PageLayout: FC<PageLayoutProps> = ({ theme, useCounter }) => {
+const PageLayout: FC<PageLayoutProps> = ({ theme, useCounter, Icon }) => {
   const counters = useCounter();
 
   const [location, setLocation] = useState<number>(0);
@@ -24,7 +25,7 @@ const PageLayout: FC<PageLayoutProps> = ({ theme, useCounter }) => {
     EMPTY_REF,
   );
 
-  const animations = useMemo(() => <FloatingHearts />, []);
+  const animations = useMemo(() => <FloatingIcons Icon={Icon} />, [Icon]);
 
   // This makes sure refs are initialized after render
   useEffect(() => {
