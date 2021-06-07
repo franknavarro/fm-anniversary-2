@@ -6,7 +6,7 @@ import {
   Slide,
   Toolbar,
 } from '@material-ui/core';
-import { FC } from 'react';
+import { FC, RefObject, useEffect } from 'react';
 
 const useStyles = makeStyles((theme) => ({
   bottomBar: {
@@ -24,33 +24,31 @@ const useStyles = makeStyles((theme) => ({
 
 type BarButtonProps = {
   label: string;
-  link: string;
+  pageRef: RefObject<HTMLDivElement>;
   bottom?: boolean;
   onClick?: () => void;
 };
 
 export const BarButton: FC<BarButtonProps> = ({
-  onClick,
-  label,
   bottom,
   children,
-  link,
+  label,
+  onClick,
+  pageRef,
   ...props
 }) => {
   const classes = useStyles();
-  const linkDestination = link === '#' ? '' : link;
 
   const extraProps: AppBarProps = {
     ...props,
   };
   if (bottom) extraProps.className = classes.bottomBar;
 
+  useEffect(() => {}, [pageRef]);
+
   const handleClick = () => {
-    if (linkDestination) {
-      const anchor = document.querySelector(linkDestination);
-      if (anchor) {
-        anchor.scrollIntoView({ behavior: 'smooth', block: 'center' });
-      }
+    if (pageRef?.current) {
+      pageRef.current.scrollIntoView({ behavior: 'smooth', block: 'center' });
     }
     if (onClick) onClick();
   };
@@ -58,7 +56,7 @@ export const BarButton: FC<BarButtonProps> = ({
   return (
     <Slide
       appear={false}
-      in={!!linkDestination}
+      in={!!pageRef?.current}
       direction={bottom ? 'up' : 'down'}
     >
       <AppBar position="fixed" {...extraProps}>

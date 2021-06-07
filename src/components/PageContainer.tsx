@@ -1,5 +1,5 @@
 import { Container, makeStyles } from '@material-ui/core';
-import { FC } from 'react';
+import { forwardRef, ReactNode } from 'react';
 
 const useStyles = makeStyles({
   pageContainer: {
@@ -9,18 +9,22 @@ const useStyles = makeStyles({
 });
 
 type PageContainerProps = {
-  id?: string;
+  children: ReactNode;
 };
 
-export const PageContainer: FC<PageContainerProps> = ({
-  children,
-  ...props
-}) => {
-  const classes = useStyles();
+export const PageContainer = forwardRef<HTMLDivElement, PageContainerProps>(
+  ({ children, ...props }, ref) => {
+    const classes = useStyles();
 
-  return (
-    <Container className={classes.pageContainer} disableGutters {...props}>
-      {children || ''}
-    </Container>
-  );
-};
+    return (
+      <Container
+        className={classes.pageContainer}
+        disableGutters
+        {...props}
+        ref={ref}
+      >
+        {children || ''}
+      </Container>
+    );
+  },
+);
