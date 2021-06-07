@@ -5,8 +5,12 @@ const getDate = (date: string) => new Date(date).toISOString();
 
 const startedDating = getDate('april,17,2016,04:15:00');
 const anniversary = getDate('june,26,2020,12:00:00');
+const eeveesBirth = getDate('november,29,2020,00:00:00');
+const eeveesJoinsTheFamily = getDate('january,24,2021,10:00:00');
 
-const useAniversaryCounters = (): TimeItem[] => [
+export type useCounter = () => TimeItem[];
+
+export const useAniversaryCounters: useCounter = () => [
   {
     primaryText: "We've been married...",
     startTime: anniversary,
@@ -26,4 +30,15 @@ const useAniversaryCounters = (): TimeItem[] => [
   },
 ];
 
-export default useAniversaryCounters;
+export const useEeveeCounters: useCounter = () => [
+  {
+    primaryText: 'Eevee has graced this earth for...',
+    startTime: eeveesBirth,
+    ref: useRef<HTMLDivElement>(null),
+  },
+  {
+    primaryText: "And we've had Eevee for...",
+    startTime: eeveesJoinsTheFamily,
+    ref: useRef<HTMLDivElement>(null),
+  },
+];

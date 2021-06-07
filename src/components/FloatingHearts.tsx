@@ -1,4 +1,5 @@
 import { makeStyles } from '@material-ui/core';
+import { FC } from 'react';
 import { useWindowSize } from '../hooks/useWindowSize';
 import './FloatingHearts.css';
 
@@ -11,7 +12,7 @@ const useStyles = makeStyles({
     position: 'fixed',
     top: 0,
     left: 0,
-    zIndex: -1000,
+    zIndex: 0,
   },
   heart: {
     position: 'relative',
@@ -46,7 +47,7 @@ const randomNumber = (min: number, max: number, decimals = 0) => {
   return (Math.random() * (max - min) + min).toFixed(decimals);
 };
 
-export const FloatingHearts = () => {
+export const FloatingHearts: FC = () => {
   const classes = useStyles();
   const windowSize = useWindowSize();
 

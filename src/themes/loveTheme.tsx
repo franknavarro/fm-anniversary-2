@@ -1,19 +1,14 @@
-import {
-  createMuiTheme,
-  CssBaseline,
-  responsiveFontSizes,
-  ThemeProvider,
-} from '@material-ui/core';
-import { FC } from 'react';
+import { createMuiTheme, responsiveFontSizes } from '@material-ui/core';
 
 const BASE_RED = '#ff3232';
 
-let theme = createMuiTheme({
+let loveTheme = createMuiTheme({
   palette: {
     primary: {
       main: BASE_RED,
     },
     background: {
+      paper: BASE_RED,
       default: BASE_RED,
     },
     text: {
@@ -25,16 +20,7 @@ let theme = createMuiTheme({
   },
 });
 
-theme = responsiveFontSizes(theme, {
+export default responsiveFontSizes(loveTheme, {
   factor: 3,
   breakpoints: ['md', 'lg'],
 });
-
-export const LoveTheme: FC = ({ children }) => {
-  return (
-    <ThemeProvider theme={theme}>
-      <CssBaseline />
-      {children}
-    </ThemeProvider>
-  );
-};

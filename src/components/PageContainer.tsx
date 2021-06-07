@@ -1,4 +1,4 @@
-import { Container, makeStyles } from '@material-ui/core';
+import { makeStyles, Paper } from '@material-ui/core';
 import { forwardRef, ReactNode } from 'react';
 
 const useStyles = makeStyles({
@@ -17,14 +17,15 @@ export const PageContainer = forwardRef<HTMLDivElement, PageContainerProps>(
     const classes = useStyles();
 
     return (
-      <Container
+      <Paper
         className={classes.pageContainer}
-        disableGutters
+        square
+        elevation={0}
         {...props}
         ref={ref}
       >
         {children || ''}
-      </Container>
+      </Paper>
     );
   },
 );

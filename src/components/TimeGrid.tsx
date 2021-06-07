@@ -13,6 +13,9 @@ const useStyles = makeStyles({
   timeGrid: {
     minHeight: '100vh',
   },
+  gridFront: {
+    zIndex: 100,
+  },
 });
 
 export type TimeItem = {
@@ -85,7 +88,14 @@ export const TimeGrid = forwardRef<HTMLDivElement, TimeGridProps>(
           justify="center"
           className={classes.timeGrid}
         >
-          <Grid container item xs={12} justify="center" spacing={10}>
+          <Grid
+            container
+            item
+            xs={12}
+            justify="center"
+            spacing={10}
+            className={classes.gridFront}
+          >
             {renderTextGrid(primaryText)}
             <Grid container item justify="center" xs={12} spacing={4}>
               <TimeBox
