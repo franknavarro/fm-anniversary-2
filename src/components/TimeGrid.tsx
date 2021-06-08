@@ -16,6 +16,12 @@ const useStyles = makeStyles({
   gridFront: {
     zIndex: 100,
   },
+  innerGrid: {
+    '.MuiGrid-item&': {
+      paddingLeft: 0,
+      paddingRight: 0,
+    },
+  },
 });
 
 export type TimeItem = {
@@ -97,7 +103,14 @@ export const TimeGrid = forwardRef<HTMLDivElement, TimeGridProps>(
             className={classes.gridFront}
           >
             {renderTextGrid(primaryText)}
-            <Grid container item justify="center" xs={12} spacing={4}>
+            <Grid
+              container
+              item
+              justify="center"
+              xs={12}
+              spacing={4}
+              className={classes.innerGrid}
+            >
               <TimeBox
                 startTime={startTime}
                 endTime={endTime}

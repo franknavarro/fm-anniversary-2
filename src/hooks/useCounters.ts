@@ -37,7 +37,7 @@ export const useEeveeCounters: useCounter = () => [
     ref: useRef<HTMLDivElement>(null),
   },
   {
-    primaryText: "And we've had Eevee for...",
+    primaryText: 'Eevee has been apart of the family for...',
     startTime: eeveesJoinsTheFamily,
     ref: useRef<HTMLDivElement>(null),
   },
