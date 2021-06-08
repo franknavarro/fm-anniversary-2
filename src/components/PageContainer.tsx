@@ -1,3 +1,4 @@
+import clsx from 'clsx';
 import { makeStyles, Paper } from '@material-ui/core';
 import { forwardRef, ReactNode } from 'react';
 
@@ -10,18 +11,18 @@ const useStyles = makeStyles({
 
 type PageContainerProps = {
   children: ReactNode;
+  className?: string;
 };
 
 export const PageContainer = forwardRef<HTMLDivElement, PageContainerProps>(
-  ({ children, ...props }, ref) => {
+  ({ children, className }, ref) => {
     const classes = useStyles();
 
     return (
       <Paper
-        className={classes.pageContainer}
+        className={clsx(classes.pageContainer, className)}
         square
         elevation={0}
-        {...props}
         ref={ref}
       >
         {children || ''}

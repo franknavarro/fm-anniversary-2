@@ -8,6 +8,7 @@ import { useAniversaryCounters, useEeveeCounters } from './hooks/useCounters';
 import doggyTheme from './themes/doggyTheme';
 import loveTheme from './themes/loveTheme';
 import Head from './components/Head';
+import ErrorPage from './components/ErrorPage';
 
 const App: FC = () => {
   return (
@@ -37,6 +38,9 @@ const App: FC = () => {
             theme={doggyTheme}
             Icon={PetsIcon}
           />
+        </Route>
+        <Route>
+          <ErrorPage />
         </Route>
       </Switch>
     </Router>
