@@ -7,6 +7,7 @@ import PageLayout from './components/PageLayout';
 import { useAniversaryCounters, useEeveeCounters } from './hooks/useCounters';
 import doggyTheme from './themes/doggyTheme';
 import loveTheme from './themes/loveTheme';
+import Head from './components/Head';
 
 const App: FC = () => {
   return (
@@ -14,6 +15,11 @@ const App: FC = () => {
       <CssBaseline />
       <Switch>
         <Route path="/" exact>
+          <Head
+            title="F + M"
+            description="Counting the days of Frank and Missy's love"
+            iconPrefix="heart"
+          />
           <PageLayout
             useCounter={useAniversaryCounters}
             theme={loveTheme}
@@ -21,6 +27,11 @@ const App: FC = () => {
           />
         </Route>
         <Route path="/eevee" exact>
+          <Head
+            title="Eevee"
+            description="Counting the days for Eevee"
+            iconPrefix="dog"
+          />
           <PageLayout
             useCounter={useEeveeCounters}
             theme={doggyTheme}
